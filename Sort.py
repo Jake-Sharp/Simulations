@@ -1,20 +1,19 @@
-def selectionSort(alist):
 
-   for i in range(len(alist)):
+import sys 
+A = [64, 25, 12, 22, 11] 
+  
 
-      # Find the minimum element in remaining
-       minPosition = i
+for i in range(len(A)): 
+    
+    min_idx = i 
+    for j in range(i+1, len(A)): 
+        if A[min_idx] > A[j]: 
+            min_idx = j 
+              
+           
+    A[i], A[min_idx] = A[min_idx], A[i] 
+  
 
-       for j in range(i+1, len(alist)):
-           if alist[minPosition] > alist[j]:
-               minPosition = j
-                
-       # Swap the found minimum element with minPosition       
-       temp = alist[i]
-       alist[i] = alist[minPosition]
-       alist[minPosition] = temp
-
-   return alist
-
-print(selectionSort([5,2,1,9,0,4,6]))
-
+print ("Sorted array") 
+for i in range(len(A)): 
+    print("%d" %A[i]),  
